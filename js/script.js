@@ -7,8 +7,6 @@ let pokemonRepository = (function () {
       modalContainer = $('#modal-container'),
       loading = $('#loading');
 
-      console.log(pokemonList)
-
   //loading gif
   function showLoading() {
     loading.addClass('display');
@@ -17,25 +15,6 @@ let pokemonRepository = (function () {
   function hideLoading() {
     loading.removeClass('display');
   };
-
-  //creates list of buttons as a child of a div, with CSS styles, and with an Event Listener
-  function addList(pokemon) {
-    let container = $('.pokemon-app');
-    let listPokemon = $('<li></li>');
-    let pokemonImage = $('<img style="width:30%">');
-    pokemonImage.attr('src', pokemon.imageUrl);
-    let button = $('<button class="btn button">' + pokemon.name.toUpperCase() + '</button>');
-
-
-    button.append(pokemonImage);
-    listPokemon.append(button);
-    container.append(listPokemon);
-
-    button.on('click', function() {
-      showDetails(pokemon);
-      showModal(pokemon);
-     });
-  }
 
   function loadList() {
     showLoading();
@@ -69,7 +48,7 @@ let pokemonRepository = (function () {
         for (i = 0; i < details.types.length; i++) {
           if (details.types.length === 2) {
           typeString = '';
-          pokemon.type = typeString.concat(details.types[0].type.name + ', ' + details.types[1].type.name);
+          pokemon.type = typeString.concat(details.types[0].type.name + ' / ' + details.types[1].type.name);
           }else {
           pokemon.type = details.types[i].type.name;
           }
@@ -103,6 +82,32 @@ let pokemonRepository = (function () {
     });
   }
 
+  //creates list of buttons as a child of a div, with CSS styles, and with an Event Listener
+  function addList(pokemon) {
+    loadDetails(pokemon).then(function () {
+    let container = $('.pokemon-app');
+    let listPokemon = $('<li></li>');
+
+    let pokemonImage = $('<img alt="Image of Pokemon" src="' + pokemon.imageUrl + '">');
+    pokemonImage.addClass('img-fluid');
+
+    pokemonName = pokemon.name.toUpperCase();
+
+    let button = $('<button></button>');
+    button.addClass('btn button')
+
+    button.append(pokemonName);
+    button.append(pokemonImage);
+    listPokemon.append(button);
+    container.append(listPokemon);
+
+    button.on('click', function() {
+      showDetails(pokemon);
+      showModal(pokemon);
+     });
+   });
+  }
+
   function showModal(pokemon) {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
@@ -114,18 +119,19 @@ let pokemonRepository = (function () {
     let pokemonImage = $('<img class="modal-img" style="width:30%">');
     pokemonImage.attr('src', pokemon.imageUrl);
 
+
     //display details in  a grid
     let detailsList = $('<li class="details-list"></li>');
+    let pokemonType = $('<p class="type-info">' + pokemon.type + '</p>')
+    let pokemonInfo = $('<p class="modal-info">Size: ' + pokemon.size + '</p>' +
+                        '<p class="modal-info">Height: ' + pokemon.height + '</p>' +
+                        '<p class="modal-info">Weight: ' + pokemon.weight + '</p>');
 
-    let pokemonInfo = $('<p>Type: ' + pokemon.type + '</p>' +
-                        '<p>Height: ' + pokemon.height + '</p>' +
-                        '<p>Weight: ' + pokemon.weight + '</p>' +
-                        '<p>Size: ' + pokemon.size + '</p>');
-
-    detailsList.append(pokemonInfo);
     modalTitle.append(pokemonTitle);
+    modalBody.append(pokemonType);
     modalBody.append(pokemonImage)
     modalBody.append(detailsList);
+    detailsList.append(pokemonInfo);
 
     $('#modal-container').modal();
 }

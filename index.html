@@ -21,35 +21,34 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav px-1 border">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">POKEDEX</a>
+            <a class="nav-link text-center" href="index.html">POKEDEX</a>
           </li>
         </ul>
       </div>
     </nav>
     <div class="container">
-      <div class="pt-5 row">
-        <div class="col-4"></div>
-        <img class="" width="100" height="100" src="./images/pikachu.png" alt="Pokemon Logo from freepnglogos.com https://www.freepnglogos.com/pics/pokemon-logo-png">
+      <div class="heading pt-5 row">
+        <img class="pikachu-img" width="100" height="100" src="./images/pikachu.png" alt="Pokemon Logo from freepnglogos.com https://www.freepnglogos.com/pics/pokemon-logo-png">
         <h2 class="title text-left text-warning my-auto col">POKEDEX</h2>
       </div>
-      <div class="pt-5 row">
+      <div class="search-bar pt-5 col">
         <form class="pokemon-search form-inline">
             <input class="search-input m-auto form-control" id="myInput" type="text" placeholder="search your Pokemon" aria-label="Search">
-            <button class="search-button" type="submit"><img width="30" height="30" src="./images/pokeball.png" alt="search icon from freepiks"></button>
+            <button class="search-button d-none" type="submit"><img width="30" height="30" src="./images/pokeball.png" alt="search icon from freepiks"></button>
         </form>
       </div>
       <div class="row">
         <div class="m-auto" id="loading"></div>
       </div>
       <div class="row">
-        <div class="pokemon-app"></div>
+        <div class="d-flex flex-wrap pokemon-app"></div>
       </div>
     </div>
     <div class="modal fade" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalTitle"></h5>
+            <h5 class="modal-title" id="modalTitle">Modal Title</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
