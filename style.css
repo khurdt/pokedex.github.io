@@ -1,0 +1,26 @@
+nav {
+  background: #3B4CCA
+}
+
+.title {
+  font-size: 60px;
+  color: #FFDE00;
+  -webkit-text-stroke-color: #3B4CCA;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-fill-color: #FFDE00;
+}
+
+#loading {
+  width: 3rem;
+  height: 3rem;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid red;
+  border-radius: 100%;
+  margin: auto;
+  visibility: hidden;
+  animation: spin 1s infinite linear;
+}
+
+#loading.display {
+  visibility: visible;
+}

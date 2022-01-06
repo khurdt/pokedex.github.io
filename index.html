@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width">
+  	<title>repl.it</title>
+  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  	 crossorigin="anonymous">
+  	<link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="bg-white">
+    <nav class="navbar navbar-expand-sm navbar-dark">
+      <a class="navbar-brand">
+        <h1 class="px-2">Kevin Hurdt</h1>
+      </a>
+      <button
+        class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav px-1 border">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">POKEDEX</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="pt-5 row">
+        <div class="col-4"></div>
+        <img class="" width="100" height="100" src="./images/pikachu.png" alt="Pokemon Logo from freepnglogos.com https://www.freepnglogos.com/pics/pokemon-logo-png">
+        <h2 class="title text-left text-warning my-auto col">POKEDEX</h2>
+      </div>
+      <div class="pt-5 row">
+        <form class="pokemon-search form-inline">
+            <input class="search-input m-auto form-control" id="myInput" type="text" placeholder="search your Pokemon" aria-label="Search">
+            <button class="search-button" type="submit"><img width="30" height="30" src="./images/pokeball.png" alt="search icon from freepiks"></button>
+        </form>
+      </div>
+      <div class="row">
+        <div class="m-auto" id="loading"></div>
+      </div>
+      <div class="row">
+        <div class="pokemon-app"></div>
+      </div>
+    </div>
+    <div class="modal fade" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="modalBody"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/promise-polyfill.js"></script>
+    <script src="./js/fetch-polyfill.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
