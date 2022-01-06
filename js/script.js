@@ -179,25 +179,3 @@ let pokemonRepository = (function () {
       pokemonRepository.addList(pokemon);
   });
 });
-
-//ajax call of the API
-  // function loadList() {
-  //   showLoading();
-  //   $.ajax(apiUrl, {
-  //     method: 'GET',
-  //     dataType: 'json',
-  //     timeout: 5000
-  //   }).done(function (json) {
-  //     let results = json.results;
-  //     $.each(results, function (i, item) {
-  //       let pokemon = {
-  //         name: item.name,
-  //         detailsUrl: item.url
-  //       }
-  //       add(pokemon);
-  //       hideLoading();
-  //     });
-  //   }).fail(function(err) {
-  //     console.log('Caught an error' + err.statusText);
-  //   });
-  // }
