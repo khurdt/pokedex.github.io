@@ -3,7 +3,8 @@ nav {
 }
 
 nav li:hover {
-    text-decoration-color: rgba(255, 0, 0, 0.5);
+    -webkit-text-decoration-color: rgba(255, 0, 0, 0.5);
+            text-decoration-color: rgba(255, 0, 0, 0.5);
 }
 
 div.navbar-collapse a {
@@ -24,6 +25,8 @@ div.decor a:before {
 	background: white;
 	content: "";
 	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
 	transition: all 0.3s;
 }
 
@@ -35,23 +38,31 @@ div.decor a:after {
 	background: white;
 	content: "";
 	opacity: 0;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
 	transition: all 0.3s;
 }
 
 div.decor a:before {
 	top: 0px;
-	transform: translateX(0px)translateY(-15px);
+	-webkit-transform: translateX(0px)translateY(-15px);
+	    -ms-transform: translateX(0px)translateY(-15px);
+	        transform: translateX(0px)translateY(-15px);
 }
 
 div.decor a:after {
 	bottom: 0px;
-	transform: translateX(0px)translateY(15px);
+	-webkit-transform: translateX(0px)translateY(15px);
+	    -ms-transform: translateX(0px)translateY(15px);
+	        transform: translateX(0px)translateY(15px);
 }
 
 div.decor a:hover:before,
 div.decor a:hover:after {
 	opacity: 1;
-	transform: translateX(0px);
+	-webkit-transform: translateX(0px);
+	    -ms-transform: translateX(0px);
+	        transform: translateX(0px);
 }
 
 .title {
@@ -70,7 +81,8 @@ div.decor a:hover:after {
   border-radius: 100%;
   margin: auto;
   visibility: hidden;
-  animation: spin 1s infinite linear;
+  -webkit-animation: spin 1s infinite linear;
+          animation: spin 1s infinite linear;
 }
 
 #loading.display {
@@ -84,6 +96,8 @@ div.decor a:hover:after {
 .pokemon-app li {
   margin: auto;
   padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -113,7 +127,9 @@ div.decor a:hover:after {
 
 .details-list {
   text-decoration: none!important;
+  -webkit-display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   padding: 10px;
@@ -158,9 +174,3 @@ div.decor a:hover:after {
     font-size: 50px;
   }
 }
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) {}
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {}
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}

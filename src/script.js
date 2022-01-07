@@ -1,4 +1,3 @@
-
 //IIFE function
 let pokemonRepository = (function () {
 
@@ -121,8 +120,10 @@ let pokemonRepository = (function () {
 
 
     //display details in  a grid
-    let detailsList = $('<li class="details-list"></li>');
-    let pokemonType = $('<p class="type-info">' + pokemon.type + '</p>')
+    let detailsList = $('<li></li>');
+    detailsList.addClass('details-list');
+    let pokemonType = $('<p>' + pokemon.type + '</p>');
+    pokemonType.addClass('type-info');
     let pokemonInfo = $('<p class="modal-info">Size: ' + pokemon.size + '</p>' +
                         '<p class="modal-info">Height: ' + pokemon.height + '</p>' +
                         '<p class="modal-info">Weight: ' + pokemon.weight + '</p>');
@@ -135,7 +136,6 @@ let pokemonRepository = (function () {
 
     $('#modal-container').modal();
 }
-
 
   function add(pokemon) {
       pokemonList.push(pokemon);
@@ -156,25 +156,25 @@ let pokemonRepository = (function () {
   };
 })();
 
-  pokemonRepository.loadList().then(function () {
-  //Search//
+pokemonRepository.loadList().then(function () {
+//Search//
   let searchForm = $('.pokemon-search')
-  searchForm.on('submit', function (event) {
-      event.preventDefault();
-      let searchString = $('#myInput').val().toLowerCase();
-      $('.pokemon-app').empty('');
-      if (searchString === '') {
-        pokemonRepository.getAll().forEach(function (pokemon) {
-          pokemonRepository.addList(pokemon);
-        });
-      } else {
-        pokemonRepository.getAll().forEach(function (pokemon) {
-          if (pokemon.name.toLowerCase().indexOf(searchString) > -1) {
-            pokemonRepository.addList(pokemon);
-          }
-        });
-      }
+  searchForm.on('input', function (event) {
+    event.preventDefault();
+    let searchString = $('#myInput').val().toLowerCase();
+    $('.pokemon-app').empty('');
+    if (searchString === '') {
+      pokemonRepository.getAll().forEach(function (pokemon) {
+      pokemonRepository.addList(pokemon);
     });
+    } else {
+      pokemonRepository.getAll().forEach(function (pokemon) {
+    if (pokemon.name.toLowerCase().indexOf(searchString) > -1) {
+      pokemonRepository.addList(pokemon);
+            }
+          });
+        }
+      });
     pokemonRepository.getAll().forEach(function(pokemon) {
       pokemonRepository.addList(pokemon);
   });
