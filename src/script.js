@@ -1,19 +1,18 @@
 //IIFE function
 let pokemonRepository = (function () {
 
-  let pokemonList = [];
+  let pokemonList = [],
       apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150',
-      modalContainer = $('#modal-container'),
       loading = $('#loading');
 
   //loading gif
   function showLoading() {
     loading.addClass('display');
-  };
+  }
 
   function hideLoading() {
     loading.removeClass('display');
-  };
+  }
 
   function loadList() {
     showLoading();
@@ -44,14 +43,14 @@ let pokemonRepository = (function () {
         pokemon.height = details.height;
         pokemon.weight = details.weight;
         //gets both types from the array called 'types'
-        for (i = 0; i < details.types.length; i++) {
+        for (let i = 0; i < details.types.length; i++) {
           if (details.types.length === 2) {
-          typeString = '';
+          let typeString = '';
           pokemon.type = typeString.concat(details.types[0].type.name + ' / ' + details.types[1].type.name);
           }else {
           pokemon.type = details.types[i].type.name;
           }
-        };
+        }
         hideLoading();
       }).catch(function (e) {
       console.error(e);
@@ -90,7 +89,7 @@ let pokemonRepository = (function () {
     let pokemonImage = $('<img alt="Image of Pokemon" src="' + pokemon.imageUrl + '">');
     pokemonImage.addClass('img-fluid');
 
-    pokemonName = pokemon.name.toUpperCase();
+    let pokemonName = pokemon.name.toUpperCase();
 
     let button = $('<button></button>');
     button.addClass('btn button')
@@ -139,11 +138,11 @@ let pokemonRepository = (function () {
 
   function add(pokemon) {
       pokemonList.push(pokemon);
-  };
+  }
 
   function getAll() {
       return pokemonList;
-  };
+  }
 
   return {
     add: add,
