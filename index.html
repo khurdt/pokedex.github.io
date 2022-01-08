@@ -3,10 +3,11 @@
   <head>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width">
-  	<title>repl.it</title>
+  	<title>Bootstrap POKEDEX</title>
+    <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32" />
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
   	 crossorigin="anonymous">
-  	<link href="style.css" rel="stylesheet" type="text/css" />
+  	<link href="./dist/style.production.css" rel="stylesheet" type="text/css" />
   </head>
   <body class="bg-white">
     <nav class="navbar navbar-expand-sm navbar-dark">
@@ -27,9 +28,9 @@
       </div>
     </nav>
     <div class="container">
-      <div class="heading pt-5 row">
+      <div class="heading pt-5 pl-4 row">
         <img class="pikachu-img" width="100" height="100" src="./images/pikachu.png" alt="Pokemon Logo from freepnglogos.com https://www.freepnglogos.com/pics/pokemon-logo-png">
-        <h2 class="title text-left text-warning my-auto col">POKEDEX</h2>
+        <h2 class="title text-left my-auto col">POKEDEX</h2>
       </div>
       <div class="search-bar pt-5 col">
         <form class="pokemon-search form-inline">
@@ -60,12 +61,12 @@
         </div>
       </div>
     </div>
-    <script src="./js/promise-polyfill.js"></script>
-    <script src="./js/fetch-polyfill.js"></script>
+    <script src="./dist/js/promise-polyfill.js"></script>
+    <script src="./dist/js/fetch-polyfill.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
+    <script src="./dist/js/script.production.js"></script>
   </body>
 </html>

@@ -1,20 +1,18 @@
-
 //IIFE function
 let pokemonRepository = (function () {
 
-  let pokemonList = [];
+  let pokemonList = [],
       apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150',
-      modalContainer = $('#modal-container'),
       loading = $('#loading');
 
   //loading gif
   function showLoading() {
     loading.addClass('display');
-  };
+  }
 
   function hideLoading() {
     loading.removeClass('display');
-  };
+  }
 
   function loadList() {
     showLoading();
@@ -45,14 +43,14 @@ let pokemonRepository = (function () {
         pokemon.height = details.height;
         pokemon.weight = details.weight;
         //gets both types from the array called 'types'
-        for (i = 0; i < details.types.length; i++) {
+        for (let i = 0; i < details.types.length; i++) {
           if (details.types.length === 2) {
-          typeString = '';
+          let typeString = '';
           pokemon.type = typeString.concat(details.types[0].type.name + ' / ' + details.types[1].type.name);
           }else {
           pokemon.type = details.types[i].type.name;
           }
-        };
+        }
         hideLoading();
       }).catch(function (e) {
       console.error(e);
@@ -91,7 +89,7 @@ let pokemonRepository = (function () {
     let pokemonImage = $('<img alt="Image of Pokemon" src="' + pokemon.imageUrl + '">');
     pokemonImage.addClass('img-fluid');
 
-    pokemonName = pokemon.name.toUpperCase();
+    let pokemonName = pokemon.name.toUpperCase();
 
     let button = $('<button></button>');
     button.addClass('btn button')
@@ -121,8 +119,10 @@ let pokemonRepository = (function () {
 
 
     //display details in  a grid
-    let detailsList = $('<li class="details-list"></li>');
-    let pokemonType = $('<p class="type-info">' + pokemon.type + '</p>')
+    let detailsList = $('<li></li>');
+    detailsList.addClass('details-list');
+    let pokemonType = $('<p>' + pokemon.type + '</p>');
+    pokemonType.addClass('type-info');
     let pokemonInfo = $('<p class="modal-info">Size: ' + pokemon.size + '</p>' +
                         '<p class="modal-info">Height: ' + pokemon.height + '</p>' +
                         '<p class="modal-info">Weight: ' + pokemon.weight + '</p>');
@@ -136,14 +136,13 @@ let pokemonRepository = (function () {
     $('#modal-container').modal();
 }
 
-
   function add(pokemon) {
       pokemonList.push(pokemon);
-  };
+  }
 
   function getAll() {
       return pokemonList;
-  };
+  }
 
   return {
     add: add,
@@ -156,48 +155,26 @@ let pokemonRepository = (function () {
   };
 })();
 
-  pokemonRepository.loadList().then(function () {
-  //Search//
+pokemonRepository.loadList().then(function () {
+//Search//
   let searchForm = $('.pokemon-search')
-  searchForm.on('submit', function (event) {
-      event.preventDefault();
-      let searchString = $('#myInput').val().toLowerCase();
-      $('.pokemon-app').empty('');
-      if (searchString === '') {
-        pokemonRepository.getAll().forEach(function (pokemon) {
-          pokemonRepository.addList(pokemon);
-        });
-      } else {
-        pokemonRepository.getAll().forEach(function (pokemon) {
-          if (pokemon.name.toLowerCase().indexOf(searchString) > -1) {
-            pokemonRepository.addList(pokemon);
-          }
-        });
-      }
+  searchForm.on('input', function (event) {
+    event.preventDefault();
+    let searchString = $('#myInput').val().toLowerCase();
+    $('.pokemon-app').empty('');
+    if (searchString === '') {
+      pokemonRepository.getAll().forEach(function (pokemon) {
+      pokemonRepository.addList(pokemon);
     });
+    } else {
+      pokemonRepository.getAll().forEach(function (pokemon) {
+    if (pokemon.name.toLowerCase().indexOf(searchString) > -1) {
+      pokemonRepository.addList(pokemon);
+            }
+          });
+        }
+      });
     pokemonRepository.getAll().forEach(function(pokemon) {
       pokemonRepository.addList(pokemon);
   });
 });
-
-//ajax call of the API
-  // function loadList() {
-  //   showLoading();
-  //   $.ajax(apiUrl, {
-  //     method: 'GET',
-  //     dataType: 'json',
-  //     timeout: 5000
-  //   }).done(function (json) {
-  //     let results = json.results;
-  //     $.each(results, function (i, item) {
-  //       let pokemon = {
-  //         name: item.name,
-  //         detailsUrl: item.url
-  //       }
-  //       add(pokemon);
-  //       hideLoading();
-  //     });
-  //   }).fail(function(err) {
-  //     console.log('Caught an error' + err.statusText);
-  //   });
-  // }
