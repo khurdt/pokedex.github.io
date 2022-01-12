@@ -1,22 +1,24 @@
 module.exports = {
-'env': {
+  'env': {
     'browser': true,
     'es2021': true,
     'commonjs': true,
     'jquery': true,
     'es6': true
-},
-'extends': 'eslint:recommended',
-'parserOptions': {
+  },
+  'extends': 'eslint:recommended',
+  'parserOptions': {
     'ecmaVersion': 13,
     'sourceType': 'module'
-},
-'plugins': [
-'dollar-sign',
-'jquery'
-],
-'rules': {
+  },
+  'plugins': [
+    'dollar-sign',
+    'jquery'
+  ],
+  'rules': {
     'quotes': ['error', 'single'],
     'no-var': 0,
-    }
+    // tabbed indentation
+    'indent': [1, 2],
+  }
 }
