@@ -67,18 +67,52 @@ div.decor a:hover:after {
 }
 
 #loading {
-  width: 3rem;
-  height: 3rem;
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid red;
-  border-radius: 100%;
-  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: inherit;
   visibility: hidden;
-  animation: spin 1s infinite linear;
+  padding: 10px;
+}
+
+.loading-object {
+  position: absolute;
+  margin: auto;
+  width: 20px;
+  height: 10px;
+  background-color: red;
+  border-radius: 10%;
+  margin: auto;
+  animation: spin 1s infinite;
+}
+
+.loading-object:nth-child(2) {
+  animation-delay: 0.1s;
+  animation-timing-function: 0.1s;
+  background: green;
+}
+
+.loading-object:nth-child(3) {
+  animation-delay: 0.2s;
+  animation-timing-function: 0.2s;
+  background: darkblue;
 }
 
 #loading.display {
   visibility: visible;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateX(-100px);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(-100px);
+  }
 }
 
 .pokemon-app {
