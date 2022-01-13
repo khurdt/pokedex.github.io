@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet"> 
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
   	 crossorigin="anonymous">
-  	<link href="./dist/style.production.css" rel="stylesheet" type="text/css" />
+  	<link href="./src/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body class="bg-white">
     <nav class="navbar navbar-expand-sm navbar-dark">
@@ -40,7 +40,11 @@
         </form>
       </div>
       <div class="row">
-        <div class="m-auto" id="loading"></div>
+        <div class="m-auto center" id="loading">
+          <div class="loading-object"></div>
+          <div class="loading-object"></div>
+          <div class="loading-object"></div>
+        </div>
       </div>
       <div class="row">
         <div class="d-flex flex-wrap pokemon-app"></div>
