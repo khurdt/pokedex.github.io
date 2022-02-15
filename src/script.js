@@ -47,7 +47,7 @@ let pokemonRepository = (function () {
         if (details.types.length === 2) {
           let typeString = '';
           pokemon.type = typeString.concat(details.types[0].type.name + ' / ' + details.types[1].type.name);
-        }else {
+        } else {
           pokemon.type = details.types[i].type.name;
         }
       }
@@ -60,7 +60,7 @@ let pokemonRepository = (function () {
   //gets data from each item in the pokemon array and sends it to the HTML
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-    //gets size from height data
+      //gets size from height data
       if (pokemon.height >= 160) {
         pokemon.size = 'Gigantic';
       } else if (pokemon.height <= 159 && pokemon.height >= 120) {
@@ -99,7 +99,7 @@ let pokemonRepository = (function () {
       listPokemon.append(button);
       container.append(listPokemon);
 
-      button.on('click', function() {
+      button.on('click', function () {
         showDetails(pokemon);
         showModal(pokemon);
       });
@@ -124,8 +124,8 @@ let pokemonRepository = (function () {
     let pokemonType = $('<p>' + pokemon.type + '</p>');
     pokemonType.addClass('type-info');
     let pokemonInfo = $('<p class="modal-info">Size: ' + pokemon.size + '</p>' +
-                        '<p class="modal-info">Height: ' + pokemon.height + '</p>' +
-                        '<p class="modal-info">Weight: ' + pokemon.weight + '</p>');
+      '<p class="modal-info">Height: ' + pokemon.height + '</p>' +
+      '<p class="modal-info">Weight: ' + pokemon.weight + '</p>');
 
     modalTitle.append(pokemonTitle);
     modalBody.append(pokemonType);
@@ -156,7 +156,7 @@ let pokemonRepository = (function () {
 })();
 
 pokemonRepository.loadList().then(function () {
-//Search//
+  //Search//
   let searchForm = $('.pokemon-search')
   searchForm.on('input', function (event) {
     event.preventDefault();
@@ -174,7 +174,7 @@ pokemonRepository.loadList().then(function () {
       });
     }
   });
-  pokemonRepository.getAll().forEach(function(pokemon) {
+  pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addList(pokemon);
   });
 });
