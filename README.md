@@ -3,7 +3,7 @@
 An application to find pokemon stats and information. this app was created using vanilla javascript and an API from pokeapi.co
 
 # What the App should do
-● Load pokemon data from an external source (pokedex.api)
+● Load pokemon data from an external source (pokeapi.co)
 <br /><br />
 ● View a list of pokemons
 <br /><br />
